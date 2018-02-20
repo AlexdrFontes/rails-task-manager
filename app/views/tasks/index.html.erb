@@ -1,0 +1,21 @@
+<div class="container">
+
+<h1>Index Tasks</h1>
+<div class="card">
+<% @tasks.each do |task| %>
+<ul>
+  <li><%= link_to task.title, task_path(task) %>
+
+      <%= link_to task_path(task),
+        method: :delete,
+        data: { confirm: "Are you sure?" }, class: "btn btn-default" do  %>
+            <i class='far fa-trash-alt'></i>
+<% end %>
+  </li>
+</ul>
+<%end%>
+</div>
+<div>
+<%= link_to " + new", tasks_new_path %>
+</div>
+</div>
